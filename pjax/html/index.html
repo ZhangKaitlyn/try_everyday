@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Kaitlyn Blog</title>
+	<link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul class="clearfix">
+				<li><a href="index.html" title="">首页</a></li>
+				<li><a href="about.html" title="">关于我</a></li>
+			</ul>
+		</nav>
+	</header><!-- /header -->
+	<div id="sub-container">
+		首页
+	</div>
+	<script src="../script/jquery-2.1.4.min.js"></script>
+	<script src="../script/jquery.pjax.js"></script>
+	<script>
+		$(document).pjax('a','#sub-container');
+	</script>
+</body>
+</html>
