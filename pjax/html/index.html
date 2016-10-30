@@ -18,10 +18,30 @@
 	<div id="sub-container">
 		首页
 	</div>
+	<button id="getUserList">获取用户列表</button>
+	<div id="userList"></div>
 	<script src="../script/jquery-2.1.4.min.js"></script>
 	<script src="../script/jquery.pjax.js"></script>
+	<script src="../script/template.js"></script>
+	<script id="userTemp" type="text/html">
+		<table>
+		{{data}}
+			{{each data as value key}}
+			<tr>
+				{{key}}:{{value}}
+			</tr>
+			{{/each}}
+		</table>
+	</script>
 	<script>
 		$(document).pjax('a','#sub-container');
+		$("#getUserList").click(function(){
+			$.get("../php/userList.php",function(data){
+				var userList=template("userTemp",data);
+				console.log(userList);
+				$("#userList").text(userList);
+			});
+		});
 	</script>
 </body>
 </html>
