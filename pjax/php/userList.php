@@ -1,8 +1,9 @@
 <?php
+	$page=$_GET['page'];
+	$offset=$page*5;
 	$userList=array();
-	for ($i=0; $i < 20; $i++) { 
-		$temp['username']='Kaitlyn'+$i;
-		$temp['userId']=10000+$i;
-		array_push($userList, $temp);
+	for ($i=0; $i < 5; $i++) { 
+		$offset+=$i;
+		$userList['userId'.$offset]='Kaitlyn'.$i;
 	}
 	echo json_encode($userList);
