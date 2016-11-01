@@ -3,7 +3,7 @@
 	$offset=$page*5;
 	$userList=array();
 	for ($i=0; $i < 5; $i++) { 
-		$offset+=$i;
-		$userList['userId'.$offset]='Kaitlyn'.$i;
+		$userId=$offset+$i;
+		$userList['userId'.$userId]='Kaitlyn'.$userId;
 	}
 	echo json_encode($userList);
