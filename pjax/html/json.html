@@ -4,8 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>json相关</title>
-	<link rel="stylesheet" href="">
-</head>
+	<link rel="stylesheet" href=""></head>
 <body>
 	<p>json的规格：</p>
 	<ol>
@@ -13,6 +12,25 @@
 		<li>映射用冒号(":")表示</li>
 		<li>并列数据的集合(数组)用方括号("[]")表示</li>
 		<li>映射的集合(对象)用大括号("{}")表示</li>
+	</ol>
+	<p>json解析的例子（获取name）：</p>
+	<ol>
+		<li>
+			json1={"name":"Kaitlyn","tel":"18912345678"}
+			<p>json1.name或者json1["name"]</p>
+		</li>
+		<li>
+			json2=[{"name":"Kaitlyn","tel":"18912345678"},{"name":"Kaitlyn1","tel":"18987654321"},{"name":"Kaitlyn2","tel":"18998765432"}]   
+			<p>json2[0].name或者json2[0]["name"]</p>
+		</li>
+		<li>
+			json3="{'name':'Kaitlyn','tel':'18912345678'}"
+			<p>var data=eval('('+json3+')');data["name"]</p>
+		</li>
+		<li>
+			json4="[{'name':'Kaitlyn','tel':'18912345678'},{'name':'Kaitlyn1','tel':'18987654321'},{'name':'Kaitlyn2','tel':'18998765432'}]"
+			<p>var data=eval(json4);data[0]["name"]</p>
+		</li>
 	</ol>
 </body>
 </html>
