@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../css/common.css">
 	<script src="../script/jquery-2.1.4.min.js"></script>
 	<script src="../script/jquery.pjax.js"></script>
-	<script type="text/javascript">
+<!-- 	<script type="text/javascript">
 		$(function(){
 			if($.support.pjax){
 				$.pjax({
@@ -27,13 +27,13 @@
 				alert("djkg");
 			}
 		});
-</script>
+</script> -->
 </head>
 <body>
 	<header>
 		<nav id="navbar">
-			<ul class="clearfix">
-				<li><a href="/index.html" title="">首页</a></li>
+			<ul class="clearfix tab-ul">
+				<li><a href="index.html" title="">首页</a></li>
 				<li><a href="about.html" title="">关于我</a></li>
 				<li><a href="json.html" title="" id="jsonAbout">json相关</a></li>
 			</ul>
@@ -46,7 +46,7 @@
 	<p>ajax缺点：点击加载更多多次后，刷新，又回到了起点</p>
 	<button id="loadMore">加载更多</button>
 	
-	<script>
+<!-- 	<script>
 		var page=0;
 		$(document).pjax('#navbar a','#sub-container');
 		$("#jsonAbout").pjax();
@@ -78,6 +78,11 @@
 				$("#loadMore").before(userList);
 			});
 		});
+	</script> -->
+	<script src="../script/tab.js"></script>
+	<script>
+		var tab1=new tab("navbar");
+		tab1.showTab();
 	</script>
 </body>
 </html>
