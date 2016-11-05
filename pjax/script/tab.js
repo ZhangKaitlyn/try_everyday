@@ -1,6 +1,7 @@
 class tab{
-	constructor(id){
+	constructor(id,containerId){
 		this.id=id;
+		this.containerId=containerId;
 	}
 
 	getData(){
@@ -17,17 +18,21 @@ class tab{
 		}
 	}
 
-	doAjax(){
+	doAjax(url){
+		var that=this;
+		$.get(url,function(data){
+			$("#"+that.containerId).text(data);
+			console.log($("#"+that.containerId));
+		});
 	}
 
-	putUrl(){
+	putUrl(url){
 
 	}
 
 	doSomething(e){
-		console.log(e);
-		this.doAjax();
-		this.putUrl();
+		this.doAjax(e.target.href);
+		this.putUrl(e.target.href);
 	}
 
 	showTab(){
