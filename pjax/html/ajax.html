@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Kaitlyn Blog</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<script src="../script/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav id="navbar">
+			<ul class="clearfix tab-ul">
+				<li>
+					<a href="index.html" title="">首页</a>
+				</li>
+				<li>
+					<a href="about.html" title="">关于我</a>
+				</li>
+				<li>
+					<a href="json.html" title="">json相关</a>
+				</li>
+				<li>
+					<a href="ajax.html" title="">ajax相关</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<p>ajax缺点：点击加载更多多次后，刷新，又回到了起点</p>
+	<button id="loadMore">加载更多</button>
+
+	<script>
+		var page=0;
+		$(document).ready(function(){
+			$.get("../php/userList.php",{"page":page},function(data){
+				data=eval('('+data+')');
+				var userList="<table>";
+				var userId;
+				for (var i = 0; i < 5; i++) {
+					userId="userId"+i;
+					userList+="<tr><td>"+userId+"</td><td>"+data[userId]+"</td></tr>";
+				}
+				userList+="</table>";
+				$("#loadMore").before(userList);
+			});
+		})
+		$("#loadMore").click(function(){
+			page++;
+			$.get("../php/userList.php",{"page":page},function(data){
+				data=eval('('+data+')');
+				var userList="<table>";
+				var userId;
+				for (var i = 0; i < 5; i++) {
+					userId=page*5+i;
+					userId="userId"+userId;
+					userList+="<tr><td>"+userId+"</td><td>"+data[userId]+"</td></tr>";
+				}
+				userList+="</table>";
+				$("#loadMore").before(userList);
+			});
+		});
+	</script>
+
+</body>
+</html>

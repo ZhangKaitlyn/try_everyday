@@ -3,86 +3,29 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta http-equiv="x-pjax-version" content="v123">
 	<title>Kaitlyn Blog</title>
 	<link rel="stylesheet" href="../css/common.css">
 	<script src="../script/jquery-2.1.4.min.js"></script>
-	<script src="../script/jquery.pjax.js"></script>
-<!-- 	<script type="text/javascript">
-		$(function(){
-			if($.support.pjax){
-				$.pjax({
-					// selector: '#jsonAbout',
-					// container: '#main', //内容替换的容器
-					// show: '', //展现的动画，支持默认和fade, 可以自定义动画方式，这里为自定义的function即可。
-					// cache: true, //是否使用缓存
-					// storage: true, //是否使用本地存储
-					// titleSuffix: '', //标题后缀
-					// filter: function(){},
-					callback: function(){
-						console.log("dhggg");
-					}
-				});
-			}else{
-				alert("djkg");
-			}
-		});
-</script> -->
 </head>
 <body>
 	<header>
 		<nav id="navbar">
 			<ul class="clearfix tab-ul">
-				<li><a href="index.html" title="">首页</a></li>
-				<li><a href="about.html" title="">关于我</a></li>
-				<li><a href="json.html" title="" id="jsonAbout">json相关</a></li>
+				<li>
+					<a href="index.html" title="">首页</a>
+				</li>
+				<li>
+					<a href="about.html" title="">关于我</a>
+				</li>
+				<li>
+					<a href="json.html" title="" id="jsonAbout">json相关</a>
+				</li>
+				<li>
+					<a href="ajax.html" title="">ajax相关</a>
+				</li>
 			</ul>
 		</nav>
-	</header><!-- /header -->
-	<div id="main"></div>
-	<div id="sub-container">
-	</div>
-	<hr>
-	<p>ajax缺点：点击加载更多多次后，刷新，又回到了起点</p>
-	<button id="loadMore">加载更多</button>
-	
-<!-- 	<script>
-		var page=0;
-		$(document).pjax('#navbar a','#sub-container');
-		$("#jsonAbout").pjax();
-		$(document).ready(function(){
-			$.get("../php/userList.php",{"page":page},function(data){
-				data=eval('('+data+')');
-				var userList="<table>";
-				var userId;
-				for (var i = 0; i < 5; i++) {
-					userId="userId"+i;
-					userList+="<tr><td>"+userId+"</td><td>"+data[userId]+"</td></tr>";
-				}
-				userList+="</table>";
-				$("#loadMore").before(userList);
-			});
-		})
-		$("#loadMore").click(function(){
-			page++;
-			$.get("../php/userList.php",{"page":page},function(data){
-				data=eval('('+data+')');
-				var userList="<table>";
-				var userId;
-				for (var i = 0; i < 5; i++) {
-					userId=page*5+i;
-					userId="userId"+userId;
-					userList+="<tr><td>"+userId+"</td><td>"+data[userId]+"</td></tr>";
-				}
-				userList+="</table>";
-				$("#loadMore").before(userList);
-			});
-		});
-	</script> -->
-	<script src="../script/tab.js"></script>
-	<script>
-		var tab1=new tab("navbar","main");
-		tab1.showTab();
-	</script>
+	</header>
+	<h1>首页</h1>
 </body>
 </html>
