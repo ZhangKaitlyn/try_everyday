@@ -1,0 +1,17 @@
+#navTab ul {
+	list-style: none;
+}
+#navTab ul li{
+	float: left;
+	padding: 10px;
+}
+#navTab ul li.active{
+	border: 1px solid red;
+}
+.itemPage{
+	width: 100%;
+	display: none;
+}
+.itemPage.active{
+	display: block;
+}

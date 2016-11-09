@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tab切换</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/tab.css">
+</head>
+<body>
+	<div id="navTab">
+		<ul class="clearfix">
+			<li class="ab active">页面1</li>
+			<li class="">页面2</li>
+			<li class="">页面3</li>
+		</ul>
+	</div>
+	<div id="panel">
+		<div class="itemPage active">
+			<p>页面1</p>
+		</div>
+		<div class="itemPage">
+			<p>页面2</p>
+		</div>
+		<div class="itemPage">
+			<p>页面3</p>
+		</div>
+	</div>
+
+	<script src="../script/tab.js"></script>
+	<script>
+		var tab1=new tab("navTab","panel");
+	</script>
+</body>
+</html>
