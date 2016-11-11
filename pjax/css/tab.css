@@ -1,12 +1,24 @@
+div{
+	margin:0;border:0;padding:0;
+}
+p{
+	margin: 0;
+}
 #navTab ul {
 	list-style: none;
+	width: 300px;
+	padding-left: 0;
+	margin: 0;
 }
 #navTab ul li{
-	float: left;
-	padding: 10px;
+    float: left;
+    padding: 10px 0;
+    width: 33%;
+    text-align: center;
 }
 #navTab ul li.active{
-	border: 1px solid red;
+    background-color: #00a4ff;
+    color: #FFF;
 }
 .itemPage{
 	width: 100%;
@@ -14,4 +26,10 @@
 }
 .itemPage.active{
 	display: block;
+	background-color: #00a4ff;
+	color: #FFF;
+	width: 300px;
+}
+.itemPage.active p{
+	padding: 15px 5px;
 }
