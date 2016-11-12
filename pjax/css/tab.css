@@ -15,10 +15,17 @@ p{
     padding: 10px 0;
     width: 33%;
     text-align: center;
+    cursor: pointer;
+}
+#navTab ul li:hover{
+    font-weight: bold;
+    color: #575757;
 }
 #navTab ul li.active{
-    background-color: #00a4ff;
-    color: #FFF;
+	background-color: #00a4ff;
+	color: #FFF;
+    animation: tabNav 0.5s ease-in;
+    -webkit-animation:tabNav 0.5s ease-in;/*Safiri 和 Chrome*/
 }
 .itemPage{
 	width: 100%;
@@ -29,7 +36,49 @@ p{
 	background-color: #00a4ff;
 	color: #FFF;
 	width: 300px;
+	padding: 15px 10px;
 }
-.itemPage.active p{
-	padding: 15px 5px;
+
+@keyframes tabNav{
+	from{
+		background-color: transparent;
+		color: #000;
+	}
+	to{
+		background-color: #00a4ff;
+		color: #FFF;
+	}
+}
+
+@-webkit-keyframes tabNav{
+	from{
+		background-color: transparent;
+		color: #000;
+	}
+	to{
+		background-color: #00a4ff;
+		color: #FFF;
+	}
+}
+
+@-moz-keyframes tabNav{
+	from{
+		background-color: transparent;
+		color: #000;
+	}
+	to{
+		background-color: #00a4ff;
+		color: #FFF;
+	}
+}
+
+@-o-keyframes tabNav{
+	from{
+		background-color: transparent;
+		color: #000;
+	}
+	to{
+		background-color: #00a4ff;
+		color: #FFF;
+	}
 }
