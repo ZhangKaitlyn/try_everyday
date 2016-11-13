@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo-richbase</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<script src="../script/jquery-2.1.4.min.js"></script>
+	<style>
+		.way{
+			width: 50%;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<h3>使用richbase来开发组件的例子</h3>
+	<p>要实现的效果：</p>
+	<img src="../images/demo.gif" alt="输入框里字数计数">
+	<div class="wayList clearfix">
+		<div class="way">
+			<h4>方法1</h4>
+			<input id="js_input" type="text">
+			<pre>
+$(function(){
+	var input=$("#js_input");
+
+	function getNum(){
+		return	input.val().length;
+	}
+
+	function render(){
+		var num=getNum();
+		var input_count=$("#js_input_count");
+		if(input_count.length==0){
+			var str='<span id="js_input_countzzzz">'+num+'个字</span>';
+			input.after(str);
+		}else{
+			input_count.html(num+"个字");
+		}				
+	}
+
+	input.on("keyup",function(){
+		render();
+	});
+
+	render();
+})
+			</pre>
+			<p>缺点：各种变量混乱，没有很好的隔离作用域,当页面变的复杂的时候,会很难去维护</p>
+		</div>
+
+		<div class="way">
+			<h4>作用域隔绝</h4>
+			<input  id="js_input1" type="text">
+			<pre>
+var textCount={
+	input:null,
+	init:function(config){
+		this.input=$(config.id);
+		this.bindEvent();
+		return this;
+	},
+	bindEvent:function(){
+		var that=this;
+		this.input.on("keyup",function(){
+			that.render();
+		});
+	},
+	getNum:function (){
+		return	this.input.val().length;
+	},
+	render:function(){
+		var num=this.getNum();
+		var input_count=$("#js_input_count1");
+		if(input_count.length==0){
+			var str='<\span id="js_input_count1">'+num+'个字</\span>';
+			this.input.after(str);
+		}else{
+			input_count.html(num+"个字");
+		}				
+	}
+}
+textCount.init({id:"#js_input1"}).render();
+			</pre>
+			<p>缺点：这种写法没有私有的概念，比如上面的getNum,bind应该都是私有的方法。但是其他代码可以很随意的改动这些。当代码量特别特别多的时候，很容易出现变量重复，或被修改的问题</p>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			var input=$("#js_input");
+
+			function getNum(){
+				return	input.val().length;
+			}
+
+			function render(){
+				var num=getNum();
+				var input_count=$("#js_input_count");
+				if(input_count.length==0){
+					var str=" <span id='js_input_count'>"+num+"个字</span>";
+					input.after(str);
+				}else{
+					input_count.html(num+"个字");
+				}				
+			}
+
+			input.on("keyup",function(){
+				render();
+			});
+
+			render();
+		})
+	</script>
+	<script>
+		var textCount={
+			input:null,
+			init:function(config){
+				this.input=$(config.id);
+				this.bindEvent();
+				return this;
+			},
+			bindEvent:function(){
+				var that=this;
+				this.input.on("keyup",function(){
+					that.render();
+				});
+			},
+			getNum:function (){
+				return	this.input.val().length;
+			},
+			render:function(){
+				var num=this.getNum();
+				var input_count=$("#js_input_count1");
+				if(input_count.length==0){
+					var str=' <span id="js_input_count1">'+num+'个字</span>';
+					this.input.after(str);
+				}else{
+					input_count.html(num+"个字");
+				}				
+			}
+		}
+		textCount.init({id:"#js_input1"}).render();
+	</script>
+</body>
+</html>
