@@ -13,7 +13,7 @@
 	</style>
 </head>
 <body>
-	<h3>使用richbase来开发组件的例子</h3>
+	<h3>使用richbase来开发组件的例子 <a href="https://github.com/purplebamboo/demo-richbase" target="_blank">github原文</a></h3>
 	<p>要实现的效果：</p>
 	<img src="../images/demo.gif" alt="输入框里字数计数">
 	<div class="wayList clearfix">
@@ -82,10 +82,52 @@ var textCount={
 }
 textCount.init({id:"#js_input1"}).render();
 			</pre>
-			<p>缺点：这种写法没有私有的概念，比如上面的getNum,bind应该都是私有的方法。但是其他代码可以很随意的改动这些。当代码量特别特别多的时候，很容易出现变量重复，或被修改的问题</p>
+			<p>
+				缺点：这种写法没有私有的概念，比如上面的getNum,bind应该都是私有的方法。但是其他代码可以很随意的改动这些。当代码量特别特别多的时候，很容易出现变量重复，或被修改的问题
+			</p>
 		</div>
+
+		<div class="way">
+			<h4>函数闭包</h4>
+			<input type="text" id="js_input2">
+			<pre>
+var textCount1=(function(){
+	var _bindEvent=function(that){
+		that.input.on("keyup",function(){
+			that.render();
+		});
+	};
+	var _getNum=function (that){
+		return	that.input.val().length;
+	};
+	var textCount=function(config){
+
+	};
+	textCount.prototype.init=function(config){
+		this.input=$(config.id);
+		_bindEvent(this);
+		return this;
+	};
+	textCount.prototype.render=function(){
+		var num=_getNum(this);
+		var input_count=$("#js_input_count2");
+		if(input_count.length==0){
+			var str=' <\span id="js_input_count2">'+num+'个字</\span>';
+			this.input.after(str);
+		}else{
+			input_count.html(num+"个字");
+		}				
+	};
+	return textCount;//返回构造函数
+})();
+$(function(){
+	new textCount1().init({id:"#js_input2"}).render();
+});				
+			</pre>
+			</div>
 	</div>
 	<script>
+	// 最古老方式
 		$(function(){
 			var input=$("#js_input");
 
@@ -112,6 +154,7 @@ textCount.init({id:"#js_input1"}).render();
 		})
 	</script>
 	<script>
+	//作用域隔绝
 		var textCount={
 			input:null,
 			init:function(config){
@@ -140,6 +183,41 @@ textCount.init({id:"#js_input1"}).render();
 			}
 		}
 		textCount.init({id:"#js_input1"}).render();
+	</script>
+	<script>
+	//函数闭包
+		var textCount1=(function(){
+			var _bindEvent=function(that){
+				that.input.on("keyup",function(){
+					that.render();
+				});
+			};
+			var _getNum=function (that){
+				return	that.input.val().length;
+			};
+			var textCount=function(config){
+
+			};
+			textCount.prototype.init=function(config){
+				this.input=$(config.id);
+				_bindEvent(this);
+				return this;
+			};
+			textCount.prototype.render=function(){
+				var num=_getNum(this);
+				var input_count=$("#js_input_count2");
+				if(input_count.length==0){
+					var str=' <span id="js_input_count2">'+num+'个字</span>';
+					this.input.after(str);
+				}else{
+					input_count.html(num+"个字");
+				}				
+			};
+			return textCount;//返回构造函数
+		})();
+		$(function(){
+			new textCount1().init({id:"#js_input2"}).render();
+		});
 	</script>
 </body>
 </html>
