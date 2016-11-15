@@ -1,5 +1,12 @@
+html,body{
+	padding: 0;
+	margin: 0;
+}
 body{
 	font-family: "微软雅黑";
+}
+ul{
+	margin: 0;
 }
 a{
 	text-decoration: none;
