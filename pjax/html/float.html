@@ -3,10 +3,17 @@
 <head>
 	<title>tab切换</title>
 	<link rel="stylesheet" href="../css/common.css">
-	<link rel="stylesheet" href="../css/tab.css">
-</head>
+	<link rel="stylesheet" href="../css/tab.css"></head>
+	<style>
+	.box { background: #00ff90; padding: 10px; width: 600px; height: 100px; float: left;}
+    .rule1 { float: left; margin: 10px; padding: 10px; background: #ff6a00; width: 100px; text-align: center;}
+    .rule2 { float: right; margin: 10px; padding: 10px; background: #ff6a00; width: 100px; text-align: center;}
+    .rule11 { float: left; margin: 10px; padding: 10px; background: #ff6a00; width: 400px; text-align: center;}
+    .rule22 { float: right; margin: 10px; padding: 10px; background: #ff6a00; width: 400px; text-align: center;}
+
+	</style>
 <body>
-<header>
+	<header>
 		<nav id="navbar">
 			<ul class="clearfix tab-ul">
 				<li>
@@ -30,31 +37,51 @@
 			</ul>
 		</nav>
 	</header>
-	<div id="navTab">
-		<ul class="clearfix">
-			<li class="ab active">页面1</li>
-			<li class="">页面2</li>
-			<li class="">页面3</li>
-		</ul>
-	</div>
-	<div id="panel">
-		<div class="itemPage active">
-			<p>页面1</p>
-			<p>页面1</p>
+	<p>
+		来源于
+		<a href="http://luopq.com/2015/11/08/CSS-float/" target="_blank">狼狼的蓝胖子对css属性的详解</a>
+	</p>
+	<h2>float的详细规则：</h2>
+
+	<h3>规则1：浮动元素在浮动的时候，其margin不会超过包含块的padding</h3>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			.box
+			<div class="rule1">.rule1 浮动元素</div>
 		</div>
-		<div class="itemPage">
-			<p>页面2</p>
-		</div>
-		<div class="itemPage">
-			<p>页面3</p>
-			<p>页面3</p>
-			<p>页面3</p>
-		</div>
+		<div class="detail">.box 的padding为10px，.rule1的margin为10px，此时.rule1与.box的距离为20px；</div>
 	</div>
 
-	<script src="../script/tab.js"></script>
-	<script>
-		var tab1=new tab("navTab","panel");
-	</script>
+	<h3>
+		如果有多个浮动元素，后面的浮动元素的margin不会超过前面浮动元素的margin。简单说就是如果有多个浮动元素，浮动元素会按顺序排下来而不会发生重叠的现象。
+	</h3>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			.box
+			<span class="rule1">.rule1 浮动元素1</span>
+			<span class="rule1">.rule1 浮动元素2</span>
+			<span class="rule1">.rule1 浮动元素3</span>
+			<span class="rule1">.rule1 浮动元素4</span>
+		</div>
+		<div class="detail">浮动元素会一个一个排序下来而不会发生重叠现象。</div>
+	</div>
+
+	<h3>如果两个元素一个向左浮动，一个向右浮动，左浮动元素的marginRight不会和右浮动元素的marginLeft相邻</h3>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			.box
+			<div class="rule1">.rule1 左浮动元素</div>
+			<div class="rule2">.rule2 右浮动元素</div>
+		</div>
+		<div class="detail">包含块元素的宽度足够大，两个元素一个向左浮动，一个向右浮动，井水不犯河水</div>
+	</div>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			.box
+			<div class="rule11">.rule11 左浮动元素</div>
+			<div class="rule22">.rule22 右浮动元素</div>
+		</div>
+		<div class="detail">包含块宽度不够高，后面的浮动元素将会向下浮动，其顶端是前面浮动元素的底端</div>
+	</div>
 </body>
 </html>
