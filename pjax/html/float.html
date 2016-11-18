@@ -5,11 +5,15 @@
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/tab.css"></head>
 	<style>
-	.box { background: #00ff90; padding: 10px; width: 600px; height: 100px; float: left;}
+	.box { background: #00ff90; padding: 10px; width: 600px; float: left;}
     .rule1 { float: left; margin: 10px; padding: 10px; background: #ff6a00; width: 100px; text-align: center;}
     .rule2 { float: right; margin: 10px; padding: 10px; background: #ff6a00; width: 100px; text-align: center;}
     .rule11 { float: left; margin: 10px; padding: 10px; background: #ff6a00; width: 400px; text-align: center;}
     .rule22 { float: right; margin: 10px; padding: 10px; background: #ff6a00; width: 400px; text-align: center;}
+	p { margin-top: 20px; margin-bottom: 20px; background-color: #00ff21; width: 500px; }
+	.high-float { float: left; height: 80px; line-height: 80px; background-color: orangered; }
+	.minus-margin { float: left; height: 80px; line-height: 80px; background-color: orangered; margin-left: -20px; }
+	.big-width { float: left; height: 80px; line-height: 80px; background-color: orangered; width: 600px; }
 
 	</style>
 <body>
@@ -53,7 +57,7 @@
 	</div>
 
 	<h3>
-		如果有多个浮动元素，后面的浮动元素的margin不会超过前面浮动元素的margin。简单说就是如果有多个浮动元素，浮动元素会按顺序排下来而不会发生重叠的现象。
+		规则2：如果有多个浮动元素，后面的浮动元素的margin不会超过前面浮动元素的margin。简单说就是如果有多个浮动元素，浮动元素会按顺序排下来而不会发生重叠的现象。
 	</h3>
 	<div class="ruleBox clearfix">
 		<div class="box">
@@ -66,7 +70,9 @@
 		<div class="detail">浮动元素会一个一个排序下来而不会发生重叠现象。</div>
 	</div>
 
-	<h3>如果两个元素一个向左浮动，一个向右浮动，左浮动元素的marginRight不会和右浮动元素的marginLeft相邻</h3>
+	<h3>
+		规则3：如果两个元素一个向左浮动，一个向右浮动，左浮动元素的marginRight不会和右浮动元素的marginLeft相邻
+	</h3>
 	<div class="ruleBox clearfix">
 		<div class="box">
 			.box
@@ -82,6 +88,82 @@
 			<div class="rule22">.rule22 右浮动元素</div>
 		</div>
 		<div class="detail">包含块宽度不够高，后面的浮动元素将会向下浮动，其顶端是前面浮动元素的底端</div>
+	</div>
+
+	<h3>
+		规则4：浮动元素顶端不会超过包含块的内边界底端，如果有多个浮动元素，下一个浮动元素的顶端不会超过上一个浮动元素的底端。这条规则简单说就是如果有多个浮动元素，后面的元素高度不会超过前面的元素，并且不会超过包含块
+	</h3>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			<p>在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，</p>
+			<p class="rule1">.rule1 浮动元素1 .rule1 浮动元素1 .rule1 浮动元素1</p>
+			<p>在浮动元素之后,在浮动元素之后,在浮动元素之后,在浮动元素之后,在浮动元素之后,在浮动元素之后,在浮动元素之后</p>
+			<p class="rule1">
+				.rule1 浮动元素2 .rule1 浮动元素2 .rule1 浮动元素2 .rule1 浮动元素2 .rule1 浮动元素2
+			</p>
+		</div>
+		<div class="detail">两个浮动元素，后面的浮动元素不会超过前面的浮动元素</div>
+	</div>
+
+	<h3>规则5：如果有非浮动元素和浮动元素同时存在，并且非浮动元素在前，则浮动元素不会不会高于非浮动元素</h3>
+	<div class="ruleBox clearfix">
+		<p>例子看规则4，第1个p元素和，rule1 浮动元素</p>
+	</div>
+
+	<h3>规则6：浮动元素会尽可能地向顶端对齐、向左或向右对齐</h3>
+	<div class="ruleBox clearfix">
+		<p>例子看规则4，浮动元素会尽可能靠近不浮动的p元素</p>
+	</div>
+
+	<hr/>
+
+	<h2>浮动元素的延伸性</h2>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			<p>
+				在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，
+				<span class="high-float">浮动元素比父级元素高</span>
+			</p>
+			<p>在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后</p>
+		</div>
+		<div class="detail">浮动元素高度高于父元素，浮动元素超出了父元素的底部</div>
+	</div>
+	<h3>解决方法：将父元素p设置成float:left</h3>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			<p style="float: left;">
+				在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，
+				<span class="high-float">浮动元素比父级元素高</span>
+			</p>
+			<p>在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后</p>
+		</div>
+		<div class="detail">浮动元素的延伸性：元素被设置成浮动后，该元素会进行延伸进而包含其所有浮动的子元素</div>
+	</div>
+
+	<hr/>
+
+	<h2>浮动元素超出父元素padding</h2>
+
+	<h3>负的margin</h3>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			<p>
+				在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，
+				<span class="minus-margin">负margin-left</span>
+			</p>
+		</div>
+		<div class="detail">将margin-left设置成负数之后，浮动的子元素明显超出了父元素的内边界</div>
+	</div>
+
+	<h3>浮动元素宽度大于父级元素宽度</h3>
+	<div class="ruleBox clearfix">
+		<div class="box">
+			<p>
+				在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，
+				<span class="big-width">width大于父级元素</span>
+			</p>
+		</div>
+		<div class="detail">将浮动元素左浮动，并且宽度超出父级元素时，由于浮动元素宽度较大，它会超过父级元素的右内边界;如果将其设置成右浮动,它会超过父级元素的左内边界</div>
 	</div>
 </body>
 </html>
