@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>列表前圆点的不同实现</title>
+	<style type="text/css">
+		ul{
+			margin: 0;
+			list-style: none;
+			width: 200px;
+		}
+		.ellipsis-1{
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.ulImg li{
+			background: url(images/dot.jpg) no-repeat 0px 4px;
+			padding-left: 20px;
+			background-size: 10px;
+		}
+		.ulSpan span{
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			margin-right: 10px;
+			background-color: #333;
+		}
+		.ulVirtual li{
+			padding-left: 20px;
+			position: relative;
+		}
+		.ulVirtual li:after{
+			content: "";
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			margin-right: 10px;
+			background-color: #333;
+			position: absolute;
+			left: 0;
+			top: 5px;
+		}
+	</style>
+</head>
+<body>
+	<p>情景：一个列表，每个列表项的文字只显示一行，并且前面有圆点</p>
+
+	<h3>方法一：原生方式</h3>
+	<ul style="list-style: disc;list-style-position: inside;">
+		<li class="ellipsis-1">我是苹果我是苹果我是苹果我是苹果</li>
+		<li class="ellipsis-1">我是香蕉我是香蕉我是香蕉我是香蕉</li>
+		<li class="ellipsis-1">我是梨我是梨我是梨我是梨我是梨</li>
+	</ul>
+	<p>存在的问题：不同的浏览器中圆点和内容的距离不同</p>
+	<img src="images/1_chrome.png">
+	<img src="images/1_firefox.jpg">
+	<img src="images/1_IE8+.png">
+	<img src="images/1_IE7.jpg">
+	<hr>
+
+	<h3>圆点使用背景图片方式</h3>
+	<ul class="ulImg">
+		<li class="ellipsis-1">我是苹果我是苹果我是苹果我是苹果</li>
+		<li class="ellipsis-1">我是香蕉我是香蕉我是香蕉我是香蕉</li>
+		<li class="ellipsis-1">我是梨我是梨我是梨我是梨我是梨</li>
+	</ul>
+	<p>存在的问题：</p>
+	<p>1.IE8及以下版本不支持 background-size</p>
+	<p>2.多使用了一张图片</p>
+	<hr>
+
+	<h3>在列表内容前增加一个span模拟圆点</h3>
+	<ul class="ulSpan">
+		<li class="ellipsis-1"><span></span>我是苹果我是苹果我是苹果我是苹果</li>
+		<li class="ellipsis-1"><span></span>我是香蕉我是香蕉我是香蕉我是香蕉</li>
+		<li class="ellipsis-1"><span></span>我是梨我是梨我是梨我是梨我是梨</li>
+	</ul>
+	<p>存在的问题：</p>
+	<p>1.IE8及以下不支持border-radius,会显示成正方形点</p>
+	<p>2.使用了多余的标签</p>
+	<hr>
+
+	<h3>使用 :before或 :after实现</h3>
+	<ul class="ulVirtual">
+		<li class="ellipsis-1">我是苹果我是苹果我是苹果我是苹果</li>
+		<li class="ellipsis-1">我是香蕉我是香蕉我是香蕉我是香蕉</li>
+		<li class="ellipsis-1">我是梨我是梨我是梨我是梨我是梨</li>
+	</ul>
+	<p>存在的问题：</p>
+	<p>1.IE8及以下不支持border-radius,会显示成正方形点</p>
+	<p>2.IE7及以下不支持:before和:after，所以不显示点</p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>显示步骤表单</title>
+	<link rel="stylesheet" type="text/css" href="stepon.css">
+</head>
+<body>
+<div class="js-progress">
+			<div class="clearfix">
+				<div class="step active">
+					<span>1</span>
+					<p>步骤1</p>
+				</div>
+				<div class="step">
+					<span>2</span>
+					<p>步骤2</p>
+				</div>
+				<div class="step">
+					<span>3</span>
+					<p>完成</p>
+				</div>
+			</div>
+			
+			<div class="col-md-12">
+				<form class="active step-form" action="#" method="POST" role="form">
+					<p>步骤1</p>
+					<button type="button" class="js-submitBtn" data-index="1">下一步</button>
+				</form>
+				<form class="step-form" action="#" method="POST" role="form">
+					<p>步骤2</p>
+					<button type="button" class="js-submitBtn" data-index="2">提交</button>
+				</form>
+				<div class="step-form">
+					<p>完成</p>
+					<a href="#" class="btn green btn-block">去登录</a>
+				</div>
+			</div>
+		</div>
+
+<script src="jquery.min.js"></script>
+<script src="stepon.js"></script>
+</body>
+</html>
