@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>阴影效果</title>
+	<style>
+		body{
+			background-color: #303030;
+			color: #FFF;
+		}
+		a{
+			color: #FFF;
+		}
+		#shadow-box {
+			background-color: #404240;
+			color: #FFF;
+			border: 1px solid #606460;
+			width: 300px;
+			position: relative;
+			padding: 20px;
+		}
+		#shadow-box:before, #shadow-box:after {
+			content: "";
+			position: absolute;
+			bottom: 14px;
+			border-radius: 10px;
+			width: 60%;
+			z-index: -1;
+			height: 20px;
+			box-shadow: 0 17px 10px rgba(0,0,0,.7);
+		}
+		#shadow-box:before{
+			left: 0;
+			-ms-transform: rotate(-6deg);/*兼容 IE8*/
+			transform: rotate(-6deg);
+		}
+		#shadow-box:after{
+			right: 0;
+			-ms-transform: rotate(6deg);/*兼容 IE8*/
+			transform: rotate(6deg);
+		}
+	</style>
+</head>
+<body>
+	<p>	在<a href="http://www.wex5.com/wex5/" title="_blank">wex5官网底部</a>看到的效果</p>
+	<div id="shadow-box">
+		<p>看我底部阴影</p>
+		<p>看我底部阴影</p>
+		<p>看我底部阴影</p>
+	</div>
+</body>
+</html>
