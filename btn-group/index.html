@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>基于color属性的静态UI组件重构策略</title>
+	<style>
+		.btn{
+			position: relative;
+			padding: 5px 12px;
+			background-color: currentColor;
+			display: inline-block;
+		}
+		.btn::first-line{
+			color: #FFF;
+		}
+		.btn-default{
+			color: #333;
+		}
+		.btn-warning{
+			color: #f60;
+		}
+		.btn-success{
+			color: #4cae4c;
+		}
+		.btn-error{
+			color: #c9302c;
+		}
+	</style>
+</head>
+<body>
+<a href="http://www.zhangxinxu.com/wordpress/2016/11/development-ui-component-based-on-css-color/" target="_blank">基于color属性的静态UI组件重构策略——张鑫旭</a>
+
+<h4>按钮组件例子</h4>
+<div class="btn btn-default">default btn</div>
+<div class="btn btn-warning">warning btn</div>
+<div class="btn btn-success">success btn</div>
+<div class="btn btn-error">error btn</div>
+</body>
+</html>
