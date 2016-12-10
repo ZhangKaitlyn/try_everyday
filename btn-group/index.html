@@ -24,6 +24,15 @@
 		.btn-error{
 			color: #c9302c;
 		}
+		.btn-outline{
+			position: relative;
+			padding: 5px 12px;
+			border: 1px solid currentColor;
+			display: inline-block;
+		}
+		.btn-outline::first-line{
+			color: currentColor;
+		}
 	</style>
 </head>
 <body>
@@ -34,5 +43,16 @@
 <div class="btn btn-warning">warning btn</div>
 <div class="btn btn-success">success btn</div>
 <div class="btn btn-error">error btn</div>
+
+<div class="btn-outline btn-default">default btn</div>
+<div class="btn-outline btn-warning">warning btn</div>
+<div class="btn-outline btn-success">success btn</div>
+<div class="btn-outline btn-error">error btn</div>
+
+<p>缺点：</p>
+<ul>
+	<li>兼容性：IE8+才支持currentColor、first-line,IE8对于::first-line的写法是:first-line</li>
+	<li>不适用于开源项目</li>
+</ul>
 </body>
 </html>
