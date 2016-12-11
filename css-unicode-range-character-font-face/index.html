@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS unicode-range特定字符使用font-face自定义字体</title>
+	<style>
+		@font-face{
+			font-family: BASE;
+			src:local("Microsoft Yahei");
+		}
+		@font-face{
+			font-family: quote;
+			src:local("Simsun");
+			unicode-range: U+201c, U+201d;
+		}
+		#font1{
+			font-family: BASE;
+		}
+		#font2{
+			font-family: quote, BASE;
+		}
+	</style>
+</head>
+<body>
+<a href="http://www.zhangxinxu.com/wordpress/2016/11/css-unicode-range-character-font-face/" target="_blank">《CSS unicode-range特定字符使用font-face自定义字体》张鑫旭</a>
+
+<h4>使用微软雅黑字体</h4>
+<div id="font1">
+	我使用“微软雅黑字体”
+</div>
+
+<h4>引号全是宋体，其他字体是微软雅黑</h4>
+<div id="font2">
+	看我的“引号”是宋体，其他是微软雅黑
+</div>
+</body>
+</html>
