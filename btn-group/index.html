@@ -8,10 +8,36 @@
 			padding: 5px 12px;
 			background-color: currentColor;
 			display: inline-block;
+			cursor: pointer;
 		}
 		.btn::first-line{
 			color: #FFF;
 		}
+		.btn:hover{
+			background-color: transparent;
+			border: 1px solid;
+		}
+		.btn:hover::first-line{
+			color:currentColor;
+		}
+		
+		.btn-outline{
+			position: relative;
+			padding: 5px 12px;
+			border: 1px solid currentColor;
+			display: inline-block;
+			cursor: pointer;
+		}
+		.btn-outline::first-line{
+			color: currentColor;
+		}
+		.btn-outline:hover{
+			background-color: currentColor;
+		}
+		.btn-outline:hover::first-line{
+			color:#FFF;
+		}
+
 		.btn-default{
 			color: #333;
 		}
@@ -23,15 +49,6 @@
 		}
 		.btn-error{
 			color: #c9302c;
-		}
-		.btn-outline{
-			position: relative;
-			padding: 5px 12px;
-			border: 1px solid currentColor;
-			display: inline-block;
-		}
-		.btn-outline::first-line{
-			color: currentColor;
 		}
 	</style>
 </head>
@@ -54,5 +71,7 @@
 	<li>兼容性：IE8+才支持currentColor、first-line,IE8对于::first-line的写法是:first-line</li>
 	<li>不适用于开源项目</li>
 </ul>
+
+<p>在写按钮hover效果时遇到一个问题:outline类的按钮hover后修改::first-line的color不起作用</p>
 </body>
 </html>
