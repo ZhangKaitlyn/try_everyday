@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript 中 console 的用法</title>
+</head>
+<body>
+<a href="http://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651224517&idx=2&sn=a2a36361fa8010e8f041055192f5313c&scene=2" target="_blank">JavaScript 中 console 的用法</a>
+
+<p>请看控制台</p>
+
+<p>console.dir()和console.log()的区别(未实际运行)：</p>
+<p>1.在 Firefox 的控制台中，console.dir() 能够将一个折叠的对象显示为一个清晰的导航树</p>
+<p>1.在 Chrome 的控制台中，console.log() 会将 DOM 元素以 HTML 的形式输出，而 console.dir() 则会以 JSON 对象的形式输出</p>
+
+<script>
+	// console.log()
+	console.log("Hello World");
+	var str1="Hello";
+	var str2="World";
+	console.log(str1,str2);
+	console.log("%d年%d月%d日",2016,12,13);
+
+	// console.debug()、console.info()、 console.warn() 与 console.error()
+	console.log("log");
+	console.debug("debug");
+	console.info("info");
+	console.warn("warn");
+	console.error("error");
+
+	// console.table()
+	var people={
+		"person1":{"fname":"Guolu","lname":"zhang"},
+		"person2":{"fname":"Guolu2","lname":"zhang2"},
+		"person3":{"fname":"Guolu3","lname":"zhang3"},
+	};
+	console.log(people);
+	console.table(people);
+
+	// console.time() 与 console.timeEnd()
+	console.time("for-test");
+	var arr=[];
+	for(var i=0;i<100000;i++){
+		arr.push({"key":i});
+	}
+	console.timeEnd("for-test");
+
+	// console.assert()
+	var arr1=[1,2,3];
+	console.assert(arr.length===4);
+
+	// console.count()
+	function func(){
+		console.count("label");
+	}
+	for(var i=0;i<3;i++){
+		func();
+	}
+
+	// console.group()、 console.groupEnd() 与 console.groupCollapsed()
+	console.groupCollapsed("1");
+	console.log("1-1");
+	console.log("1-2");
+	console.log("1-3");
+	console.groupEnd();
+	console.group("2");
+	console.log("2-1");
+	console.log("2-2");
+	console.log("2-3");
+	console.groupEnd();
+
+	// console.dir()
+
+</script>
+</body>
+</html>
