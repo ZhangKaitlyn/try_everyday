@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas-水波</title>
+</head>
+<body>
+<canvas id="wave">您的浏览器不支持canvas，请更新浏览器</canvas>
+
+<script>
+	var canvas=document.getElementById('wave');
+	var ctx=canvas.getContext("2d");
+
+	// 初始化Math函数集
+	var M=Math;
+	var Sin=M.sin;
+	var PI=M.PI;
+	var Round=M.Round;
+
+	// 设置画布的宽高
+	var cW=canvas.width=800;
+	var cH=canvas.height=500;
+
+	// 设置曲线的起始点坐标
+	var x0=0;
+	var y0=cH/2;
+
+	var sinLength=cW;	 	//Sin图形长度
+	var xOffset=0;			//x偏移量
+	var unit=sinLength/8;	//波浪宽
+
+	function drawWave() {
+		var points=[];
+		var x=0;
+		var y=-Sin(x);
+
+		ctx.beginPath();
+		ctx.moveTo(xOffset,y0+y*unit);
+
+		for(var i=xOffset;i<xOffset+sinLength;i+=20/sinLength){
+			x=(xOffset+i)/unit;
+			y=-Sin(x);
+
+			//记录轨迹点
+			points.push([i,unit*y+y0]);
+			ctx.lineTo(i,unit*y+y0);
+		}
+
+		// 获取起点坐标和终点坐标
+		var start=points.shift();
+		var end=points.pop();
+
+		ctx.lineTo(end[0],y0);
+		ctx.lineTo(x0,y0);
+		ctx.lineTo(start[0],start[1]);
+		ctx.strokeStyle="#f60";
+
+		console.log(end[0]);
+		console.log(y0);
+		console.log(x0);
+		console.log(start[0]);
+		console.log(start[1]);
+
+		ctx.stroke();
+	}
+
+	drawWave();
+</script>
+</body>
+</html>
