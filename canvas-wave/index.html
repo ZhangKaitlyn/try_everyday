@@ -5,6 +5,7 @@
 	<title>canvas-水波</title>
 </head>
 <body>
+<a href="http://www.w3cplus.com/animations/water-bubble.html" target="_blank">如何制作水球动画图？</a>
 <canvas id="wave">您的浏览器不支持canvas，请更新浏览器</canvas>
 
 <script>
@@ -19,27 +20,41 @@
 
 	// 设置画布的宽高
 	var cW=canvas.width=800;
-	var cH=canvas.height=500;
+	var cH=canvas.height=300;
 
 	// 设置曲线的起始点坐标
 	var x0=0;
-	var y0=cH/2;
+	var y0=cH/2+Date.parse(new Date())%100;
 
-	var sinLength=cW;	 	//Sin图形长度
+	var sinLength=800;	 	//Sin图形长度
 	var xOffset=0;			//x偏移量
 	var unit=sinLength/8;	//波浪宽
 
+	var sp=0;		//添加一个周期变量
+
+	// 设置一个渲染函数
+	function render(){
+		ctx.clearRect(0,0,cW,cH);
+
+		sp+=0.03;	//循环中不断改变该偏移量
+		drawWave();
+		requestAnimationFrame(render);
+	}
+
 	function drawWave() {
 		var points=[];
-		var x=0;
+		var x=sp;
 		var y=-Sin(x);
+
+		y0=cH/2;
 
 		ctx.beginPath();
 		ctx.moveTo(xOffset,y0+y*unit);
 
 		for(var i=xOffset;i<xOffset+sinLength;i+=20/sinLength){
-			x=(xOffset+i)/unit;
-			y=-Sin(x);
+			var dy=-Sin(sp);
+			x=sp+(xOffset+i)/unit;	//每个轨迹点都添加上偏移量
+			y=-Sin(x)*dy;
 
 			//记录轨迹点
 			points.push([i,unit*y+y0]);
@@ -55,16 +70,10 @@
 		ctx.lineTo(start[0],start[1]);
 		ctx.strokeStyle="#f60";
 
-		console.log(end[0]);
-		console.log(y0);
-		console.log(x0);
-		console.log(start[0]);
-		console.log(start[1]);
-
 		ctx.stroke();
 	}
 
-	drawWave();
+	render();
 </script>
 </body>
 </html>
