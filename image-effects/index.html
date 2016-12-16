@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS 图片处理</title>
+	<style type="text/css">
+		div{
+			width: 400px;
+			height: 300px;
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (filter: invert(1)) and (background-blend-mode: difference) {
+			.pencil-effect {
+				background-image: url(1.jpg), url(1.jpg);
+				background-blend-mode: difference;
+				background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px);
+				filter: brightness(2) invert(1) grayscale(1);
+				box-shadow: inset 0 0 0 1px black;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h3>原图</h3>
+	<div class="origin"></div>
+	<h3>手绘效果</h3>
+	<div class="pencil-effect"></div>
+</body>
+</html>
