@@ -21,12 +21,103 @@
 				box-shadow: inset 0 0 0 1px black;
 			}
 		}
+
+		.colored-pencil-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (filter: invert(1)) and (mix-blend-mode: color) {
+			.colored-pencil-effect {
+				position: relative;
+			}
+			.colored-pencil-effect:before, .colored-pencil-effect:after {
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-size: cover;
+				box-shadow: inset 0 0 0 1px black;
+			}
+			.colored-pencil-effect:before {
+				background-image: url(1.jpg), url(1.jpg);
+				background-blend-mode: difference;
+				background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px);
+				filter: brightness(2) invert(1) grayscale(1);
+			}
+			.colored-pencil-effect:after {
+				background: inherit;
+				mix-blend-mode: color;
+			}
+		}
+
+		.watercolor-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (filter: blur(2px)) and (mix-blend-mode: multiply) {
+			.watercolor-effect {
+				position: relative;
+				overflow: hidden;
+			}
+			.watercolor-effect:before, .watercolor-effect:after {
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-size: cover;
+			}
+			.watercolor-effect:before {
+				background-image: url(1.jpg), url(1.jpg);
+				background-blend-mode: difference;
+				background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px);
+				filter: brightness(2) invert(1) grayscale(1);
+				box-shadow: inset 0 0 0 1px black;
+			}
+			.watercolor-effect:after {
+				background-image: url(1.jpg);
+				background-position: center;
+				mix-blend-mode: multiply;
+				filter: brightness(1.3) blur(2px) contrast(2);
+			}
+		}
+
+		.emboss-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (filter: invert(1)) and (background-blend-mode: difference, screen) {
+			.emboss-effect {
+				background-image: url(1.jpg), url(1.jpg), url(1.jpg);
+				background-blend-mode: difference, screen;
+				background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px), center;
+				filter: brightness(2) invert(1) grayscale(1);
+			}
+		}
 	</style>
 </head>
 <body>
+	<a href="http://bennettfeely.com/image-effects/#emboss" target="_blank">Image Effects with CSS</a>
 	<h3>原图</h3>
 	<div class="origin"></div>
 	<h3>手绘效果</h3>
 	<div class="pencil-effect"></div>
+	<h3>彩铅效果</h3>
+	<div class="colored-pencil-effect"></div>
+	<h3>水彩画</h3>
+	<div class="watercolor-effect"></div>
+	<h3>浮雕效果</h3>
+	<div class="emboss-effect"></div>
 </body>
 </html>
