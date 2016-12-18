@@ -105,6 +105,126 @@
 				filter: brightness(2) invert(1) grayscale(1);
 			}
 		}
+
+		.chalkboard-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (filter: grayscale(1)) and (background-blend-mode: difference) {
+			.chalkboard-effect {
+				background-image: url(1.jpg), url(1.jpg);
+				background-blend-mode: difference;
+				background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px);
+				filter: brightness(1.5) grayscale(1);
+			}
+		}
+
+		.hallucination-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (mix-blend-mode: multiply) {
+			.hallucination-effect {
+				position: relative;
+				overflow: hidden;
+				background-color: magenta;
+				background-blend-mode: screen;
+			}
+			.hallucination-effect:before, .hallucination-effect:after {
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: inherit;
+				mix-blend-mode: multiply;
+				transform: scale(1.05);
+			}
+			.hallucination-effect:before {
+				background-color: yellow;
+				background-blend-mode: screen;
+				transform-origin: top left;
+			}
+			.hallucination-effect:after {
+				background-color: cyan;
+				background-blend-mode: screen;
+				transform-origin: bottom right;
+			}
+		}
+
+		.airbrush-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (filter: blur(5px) contrast(5)) and (mix-blend-mode: multiply) {
+			.airbrush-effect {
+				position: relative;
+				overflow: hidden;
+			}
+			.airbrush-effect:after {
+				display: block;
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: inherit;
+				filter: brightness(1.5) saturate(100) blur(5px) contrast(5);
+				mix-blend-mode: multiply;
+			}
+		}
+
+		.low-ink-x-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (background-blend-mode: screen, overlay) {
+			.low-ink-x-effect {
+				background-image: url(1.jpg), url(1.jpg), url(1.jpg);
+				background-size: 100% 100%, 10000% 100%;
+				background-blend-mode: screen, overlay;
+			}
+		}
+
+		.low-ink-y-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (background-blend-mode: screen, overlay) {
+			.low-ink-y-effect {
+				background-image: url(1.jpg), url(1.jpg), url(1.jpg);
+				background-size: 100% 100%, 100% 1000%;
+				background-blend-mode: screen, overlay;
+			}
+		}
+		.collage-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (background-blend-mode: overlay) {
+			.collage-effect {
+				background-image: url(1.jpg), url(1.jpg), url(1.jpg), url(1.jpg), url(1.jpg), url(1.jpg);
+				background-size: 200%, 80%, 60%, 50%, 40%, 100%;
+				background-position: 50%, 80%, 30%, 0;
+				background-blend-mode: overlay;
+				background-repeat: no-repeat;
+			}
+		}
 	</style>
 </head>
 <body>
@@ -119,5 +239,19 @@
 	<div class="watercolor-effect"></div>
 	<h3>浮雕效果</h3>
 	<div class="emboss-effect"></div>
+	<h3>黑板效果</h3>
+	<div class="chalkboard-effect"></div>
+	<h3>彩笔黑板效果</h3>
+	<div class="chalkboard-effect"></div>
+	<h3>幻觉效果</h3>
+	<div class="hallucination-effect"></div>
+	<h3>喷枪效果</h3>
+	<div class="airbrush-effect"></div>
+	<h3>低墨效果（x方向）</h3>
+	<div class="low-ink-x-effect"></div>
+	<h3>低墨效果（y方向）</h3>
+	<div class="low-ink-y-effect"></div>
+	<h3>拼贴效果</h3>
+	<div class="collage-effect"></div>
 </body>
 </html>
