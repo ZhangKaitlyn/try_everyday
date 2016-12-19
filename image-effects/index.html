@@ -225,33 +225,75 @@
 				background-repeat: no-repeat;
 			}
 		}
+
+		.flannel-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (background-blend-mode: overlay) {
+			.flannel-effect {
+				background-image: url(1.jpg), url(1.jpg), url(1.jpg);
+				background-position: center;
+				background-size: 100%, 100000% 100%, 100% 100000%;
+				background-blend-mode: overlay;
+			}
+		}
+
+		.mosaic-effect {
+			background-image: url(1.jpg), url(1.jpg);
+			background-size: cover, 5% 5%;
+			background-position: center;
+			background-blend-mode: overlay;
+		}
+		.photo-border-effect {
+			background-image: url(1.jpg), url(1.jpg);
+			background-position: center;
+			background-size: 60%, 20%;
+			background-repeat: no-repeat, repeat;
+		}
+		.night-vision-effect {
+			background-image: url(1.jpg), radial-gradient(#0F0, #000), repeating-linear-gradient(transparent 0, rgba(0, 0, 0, 0.1) 2.5px, transparent 5px);
+			background-size: cover;
+			background-position: center;
+			background-blend-mode: overlay;
+		}
 	</style>
 </head>
 <body>
 	<a href="http://bennettfeely.com/image-effects/#emboss" target="_blank">Image Effects with CSS</a>
-	<h3>原图</h3>
+	<h3>1.原图</h3>
 	<div class="origin"></div>
-	<h3>手绘效果</h3>
+	<h3>2.手绘效果</h3>
 	<div class="pencil-effect"></div>
-	<h3>彩铅效果</h3>
+	<h3>3.彩铅效果</h3>
 	<div class="colored-pencil-effect"></div>
-	<h3>水彩画</h3>
+	<h3>4.水彩画</h3>
 	<div class="watercolor-effect"></div>
-	<h3>浮雕效果</h3>
+	<h3>5.浮雕效果</h3>
 	<div class="emboss-effect"></div>
-	<h3>黑板效果</h3>
+	<h3>6.黑板效果</h3>
 	<div class="chalkboard-effect"></div>
-	<h3>彩笔黑板效果</h3>
+	<h3>7.彩笔黑板效果</h3>
 	<div class="chalkboard-effect"></div>
-	<h3>幻觉效果</h3>
+	<h3>8.幻觉效果</h3>
 	<div class="hallucination-effect"></div>
-	<h3>喷枪效果</h3>
+	<h3>9.喷枪效果</h3>
 	<div class="airbrush-effect"></div>
-	<h3>低墨效果（x方向）</h3>
+	<h3>10.低墨效果（x方向）</h3>
 	<div class="low-ink-x-effect"></div>
-	<h3>低墨效果（y方向）</h3>
+	<h3>11.低墨效果（y方向）</h3>
 	<div class="low-ink-y-effect"></div>
-	<h3>拼贴效果</h3>
+	<h3>12.拼贴效果</h3>
 	<div class="collage-effect"></div>
+	<h3>13.绒布效果</h3>
+	<div class="flannel-effect"></div>
+	<h3>14.镶嵌效果</h3>
+	<div class="mosaic-effect"></div>
+	<h3>15.照片边效果</h3>
+	<div class="photo-border-effect"></div>
+	<h3>15.夜视效果</h3>
+	<div class="night-vision-effect"></div>
 </body>
 </html>
