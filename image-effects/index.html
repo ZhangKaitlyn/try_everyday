@@ -259,6 +259,113 @@
 			background-position: center;
 			background-blend-mode: overlay;
 		}
+
+		.infrared-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+			filter: hue-rotate(180deg) saturate(2);
+		}
+
+		.warhol-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (background-blend-mode: color) {
+			.warhol-effect {
+				background-image: linear-gradient(#14EBFF 0, #14EBFF 50%, #FFFF70 50%, #FFFF70 100%), linear-gradient(#FF85DA 0, #FF85DA 50%, #AAA 50%, #AAA 100%), url(1.jpg);
+				background-size: 50% 100%, 50% 100%, 50% 50%;
+				background-position: top left, top right;
+				background-repeat: no-repeat, no-repeat, repeat;
+				background-blend-mode: color;
+			}
+		}
+
+		.mirror-x-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (transform: scaleX(-1)) {
+			.mirror-x-effect {
+				position: relative;
+			}
+			.mirror-x-effect:before, .mirror-x-effect:after {
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				background: inherit;
+			}
+			.mirror-x-effect:before {
+				left: 0;
+				right: 50%;
+				transform: scaleX(-1);
+			}
+			.mirror-x-effect:after {
+				left: 50%;
+				right: 0;
+			}
+		}
+
+		.mirror-y-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (transform: scaleY(-1)) {
+			.mirror-y-effect {
+				position: relative;
+			}
+			.mirror-y-effect:before, .mirror-y-effect:after {
+				display: block;
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				background: inherit;
+			}
+			.mirror-y-effect:before {
+				top: 0;
+				bottom: 50%;
+				transform: scaleY(-1);
+			}
+			.mirror-y-effect:after {
+				top: 50%;
+				bottom: 0;
+			}
+		}
+
+		.selective-color-effect {
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+
+		@supports (filter: brightness(3)) and (mix-blend-mode: color) {
+			.selective-color-effect {
+				position: relative;
+			}
+			.selective-color-effect:before, .selective-color-effect:after {
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: inherit;
+				background-color: red;
+				background-blend-mode: screen;
+				mix-blend-mode: color;
+				filter: brightness(3);
+			}
+		}
 	</style>
 </head>
 <body>
@@ -295,5 +402,15 @@
 	<div class="photo-border-effect"></div>
 	<h3>15.夜视效果</h3>
 	<div class="night-vision-effect"></div>
+	<h3>16.红外效果</h3>
+	<div class="infrared-effect"></div>
+	<h3>17.Warhol</h3>
+	<div class="warhol-effect"></div>
+	<h3>18.对称效果（水平）</h3>
+	<div class="mirror-x-effect"></div>
+	<h3>19.对称效果（垂直）</h3>
+	<div class="mirror-y-effect"></div>
+	<h3>20.Selective color</h3>
+	<div class="selective-color-effect"></div>
 </body>
 </html>
