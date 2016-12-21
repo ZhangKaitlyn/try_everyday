@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ECMAScript 2016——use strict指令</title>
+</head>
+<body>
+	<a href="http://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651224616&idx=1&sn=57b7553a00b87020eebc29c3d6e56019&scene=2" target="_blank">ECMAScript 2016中你不知道的改变</a>
+
+	<p>ECMAScript 2016 规定 "use strict" 指令不能用在一个参数使用默认值、解构或展开运算符的函数体中。</p>
+
+	<script>
+		function doSomething1(a,b){
+			"use strict";
+			console.log("this is okay");
+		}
+
+	// function doSomething2(a,b=a){
+	// 	"use strict";
+	// 	console.log("Uncaught SyntaxError: Illegal 'use strict' directive in function with non-simple parameter list");
+	// }
+
+	// const doSomething = function doSomething2({a,b}){
+	// 	"use strict";
+	// 	console.log("Uncaught SyntaxError: Illegal 'use strict' directive in function with non-simple parameter list");
+	// }
+
+	// const doSomething=(...a) =>{
+	// 	"use strict";
+	// 	console.log("Uncaught SyntaxError: Illegal 'use strict' directive in function with non-simple parameter list");
+	// }
+
+	const obj={
+		doSomething({a,b}){
+			"use strict";
+			console.log("Uncaught SyntaxError: Illegal 'use strict' directive in function with non-simple parameter list");
+		}
+	}
+</script>
+</body>
+</html>
