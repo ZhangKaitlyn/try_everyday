@@ -1,0 +1,38 @@
+body{
+	margin: 0;
+}
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+.clearfix{
+	zoom:1;
+}
+.clearfix:after{
+	content: "";
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+.navbar-info{
+	background-color: #00b0ff;
+}
+.navbar-info:after{
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+.navbar-info li{
+	float: left;
+	padding: 12px 20px;
+}
+.navbar-info li a{
+	color: #FFF;
+}
+.navbar-info li.active{
+	background-color: rgba(255, 255, 255, 0.37);
+}
