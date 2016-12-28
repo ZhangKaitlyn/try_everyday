@@ -1,5 +1,6 @@
 body{
 	margin: 0;
+	background-color: #f0f0f0;
 }
 ul{
 	list-style: none;
@@ -35,4 +36,18 @@ a{
 }
 .navbar-info li.active{
 	background-color: rgba(255, 255, 255, 0.37);
+}
+
+.v-img-text li{
+    width: 300px;
+    float: left;
+    background-color: #FFF;
+    padding: 12px;
+    margin: 5px 5px;
+}
+.v-img-text img{
+	width: 98%;
+	padding: 0 1%;
+	height: 100px;
+	object-fit: contain;
 }
