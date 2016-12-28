@@ -51,6 +51,7 @@ p{
 .v-img-text a{
 	display: inline-block;
 	position: relative;
+	width: 100%;
 }
 .v-img-text img{
 	width: 98%;
