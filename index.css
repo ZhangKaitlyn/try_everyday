@@ -10,6 +10,9 @@ ul{
 a{
 	text-decoration: none;
 }
+p{
+	margin: 0;
+}
 .clearfix{
 	zoom:1;
 }
@@ -39,15 +42,32 @@ a{
 }
 
 .v-img-text li{
-    width: 300px;
-    float: left;
-    background-color: #FFF;
-    padding: 12px;
-    margin: 5px 5px;
+	width: 300px;
+	float: left;
+	background-color: #FFF;
+	margin: 5px 5px;
+	box-shadow: 4px 4px 10px #c5c5c5;
+}
+.v-img-text a{
+	display: inline-block;
+	position: relative;
 }
 .v-img-text img{
 	width: 98%;
 	padding: 0 1%;
-	height: 100px;
+	height: 200px;
 	object-fit: contain;
+}
+.v-img-text p.title{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.75);
+	padding: 12px 15px;
+	color: #FFF;
+	display: none;
+}
+.v-img-text li:hover p.title{
+	display: inline-block;
 }
