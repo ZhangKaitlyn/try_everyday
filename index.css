@@ -67,8 +67,9 @@ p{
 	background-color: rgba(0,0,0,0.75);
 	padding: 12px 15px;
 	color: #FFF;
-	display: none;
+	opacity: 0;
 }
 .v-img-text li:hover p.title{
-	display: inline-block;
+	transition: opacity 1s;
+	opacity: 1;
 }
