@@ -22,6 +22,15 @@ p{
 	visibility: hidden;
 	clear: both;
 }
+.container{
+	width: 80%;
+	margin: 0 auto;
+}
+.nav-default{
+	width: 80%;
+	margin: 0 auto;
+}
+
 .navbar-info{
 	background-color: #00b0ff;
 }
@@ -39,6 +48,10 @@ p{
 }
 .navbar-info li.active{
 	background-color: rgba(255, 255, 255, 0.37);
+}
+
+.row{
+	background-color: #FFF;
 }
 
 .v-img-text li{
@@ -70,6 +83,6 @@ p{
 	opacity: 0;
 }
 .v-img-text li:hover p.title{
-	transition: opacity 1s;
+	transition: opacity 0.5s;
 	opacity: 1;
 }
