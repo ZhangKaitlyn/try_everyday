@@ -52,6 +52,7 @@ p{
 
 .row{
 	background-color: #FFF;
+	padding: 10px 20px;
 }
 
 .v-img-text li{
@@ -59,7 +60,8 @@ p{
 	float: left;
 	background-color: #FFF;
 	margin: 5px 5px;
-	box-shadow: 4px 4px 10px #c5c5c5;
+	box-shadow: 2px 2px 3px 0 #d0d0d0;
+	overflow: hidden;
 }
 .v-img-text a{
 	display: inline-block;
@@ -83,6 +85,26 @@ p{
 	opacity: 0;
 }
 .v-img-text li:hover p.title{
-	transition: opacity 0.5s;
+	animation: hoverTitle 0.5s;
 	opacity: 1;
+	bottom: 0;
+}
+.v-img-text li:hover img{
+	transform: scale(1.2);
+	transition: transform 1s;
+}
+
+@keyframes hoverTitle{
+	0%{
+		bottom: -42px;
+		opacity: 0;
+	}
+	50%{
+		bottom: -10px;
+		opacity: 0.6;
+	}
+	100%{
+		bottom: 0;
+		opacity: 1;
+	}
 }
