@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript模块化编程</title>
+</head>
+<body>
+	<a href="http://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651224992&idx=1&sn=6741686437e3c34f18b5557de5f6a6dc&scene=2" target="_blank">JavaScript模块化编程简史</a>
+
+	<h4>1.使用匿名函数</h4>
+	<img src="1.jpg">
+
+	<h4>2.把全局函数注入到匿名函数</h4>
+	<img src="2.jpg">
+
+	<h4>3.提供一个对象作为接口</h4>
+	<img src="3.jpg">
+
+	<h4>4.把要公开的属性专门放在一个对象声明中返回</h4>
+	<img src="4.jpg">
+
+<script>
+	// 1.使用匿名函数
+	console.log("1.使用匿名函数");
+	(function(){
+		var myGrades=[90,50,63,70,85];
+
+		var average=function(){
+			var total=myGrades.reduce(function(accumnulator,item){
+				return accumnulator+item;
+			},0);
+			return "Your average grade is "+total/myGrades.length;
+		}
+
+		var failing=function(){
+			var failingGrades=myGrades.filter(function(item){
+				return item<60;
+			});
+			return "Your failed "+failingGrades.length+" times";
+		}
+
+		console.log(average());
+		console.log(failing());
+	})()
+</script>
+<script>
+	// 2.把全局函数注入到匿名函数
+	console.log("2.把全局函数注入到匿名函数");
+	var myGrades=[90,50,63,70,85];
+	(function(){
+		myGrades.push(30);
+		var average=function(){
+			var total=myGrades.reduce(function(accumnulator,item){
+				return accumnulator+item;
+			},0);
+			return "Your average grade is "+total/myGrades.length;
+		}
+
+		var failing=function(){
+			var failingGrades=myGrades.filter(function(item){
+				return item<60;
+			});
+			return "Your failed "+failingGrades.length+" times";
+		}
+
+		console.log(average());
+		console.log(failing());
+	}(myGrades));
+</script>
+<script>
+	// 3.提供一个对象作为接口
+	console.log("3.提供一个对象作为接口");
+	var myGradesCalculate=(function(){
+		var myGrades=[90,50,63,70,85];
+		return{
+			average:function(){
+				var total=myGrades.reduce(function(accumnulator,item){
+					return accumnulator+item;
+				},0);
+				return "Your average grade is "+total/myGrades.length;
+			},
+			failing:function(){
+				var failingGrades=myGrades.filter(function(item){
+					return item<60;
+				});
+				return "Your failed "+failingGrades.length+" times";
+			}
+		}
+	})();
+	console.log(myGradesCalculate.failing());
+	console.log(myGradesCalculate.average());
+</script>
+<script>
+	// 4.把要公开的属性专门放在一个对象声明中返回
+	console.log("4.把要公开的属性专门放在一个对象声明中返回");
+	var myGrade=(function(){
+		var myGrades=[90,50,63,70,85];
+		var average=function(){
+			var total=myGrades.reduce(function(accumnulator,item){
+				return accumnulator+item;
+			},0);
+			return "Your average grade is "+total/myGrades.length;
+		};
+		var failing=function(){
+			var failingGrades=myGrades.filter(function(item){
+				return item<60;
+			});
+			return "Your failed "+failingGrades.length+" times";
+		};
+
+		return{
+			average:average,
+			failing:failing
+		}
+	})();
+	console.log(myGrade.failing());
+	console.log(myGrade.average());
+</script>
+</body>
+</html>
