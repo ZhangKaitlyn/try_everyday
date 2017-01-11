@@ -1,7 +1,3 @@
-# try_everyday #
-
-* 以前我光看书很少写代码，导致我的前端水平停滞不前
-* 所以，从现在开始，我要坚持每天提交代码。
-* 来源于看到的博客，或者突发奇想想做的东西
-
-## Keep try everyday! ##
+Some demo on the blog I learned.Preview these demos on http://123.56.125.44/try_everyday/index.html
+Here may be some mistakes.I will feel glad if you give me some advice.
+It is my pleasure if you add some demos with me!
