@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript数组去重</title>
+</head>
+<body>
+<a href="https://www.toobug.net/article/array_unique_in_javascript.html" target="_blank">JavaScript数组去重</a>
+
+<h3>方案一：遍历</h3>
+<img src="images/method_1.jpg" alt="方案一">
+<img src="images/method_1_answer.jpg" alt="方案一结果">
+<script>
+	function unique1(arr){
+		var result=[];
+		var len=arr.length;
+		var isRepeat;
+		for (var i = 0; i <len ; i++) {
+			isRepeat=false;
+			for(var j=i+1;j<len;j++){
+				if(arr[i]===arr[j]){
+					isRepeat=true;
+					break;
+				}
+			}
+			if(!isRepeat){
+				result.push(arr[i]);
+			}
+		}
+		return result;
+	}
+	var arr1=[1,"1",'1',1,2,3,4,2,3,4];
+	console.log(unique1(arr1));
+</script>
+
+<h3>方案二：使用对象key来去重</h3>
+</body>
+</html>
