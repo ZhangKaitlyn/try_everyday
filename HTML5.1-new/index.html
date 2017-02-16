@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HTML5.1的新功能</title>
+
+</head>
+<body>
+<h2>为响应式设计定义多个图像资源</h2>
+<picture>
+	<!-- <source srcset="daodao_1.png daodao_2.png 2x" media="(max-width:360px)"> -->
+	<!-- <source srcset="daodao_2.png daodao_3.png 2x" media="(min-width:1360px)"> -->
+	<img src="daodao_2.png" srcset="daodao_2.png" alt="your image">
+</picture>
+
+<h2>显示或隐藏额外信息</h2>
+<section>
+	<h4>Error Message</h4>
+	<details>
+		<summary>We couldn't finish down loading this video.</summary>
+		<dl>
+			<dt>File name:</dt><dd>yourfile.mp4</dd>
+			<dt>File size:</dt><dd>10M</dd>
+		</dl>
+	</details>
+</section>
+
+<h2>将功能添加到浏览器的上下文菜单</h2>
+<button contextmenu="rightclickmenu">Right click me</button>
+<menu type="context" id="rightclickmenu">
+<menuitem type="checkbox" label="HTML5 contextmenu">
+</menuitem>
+</menu>
+</body>
+</html>
