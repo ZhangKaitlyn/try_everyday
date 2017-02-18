@@ -9,9 +9,9 @@
 <body>
 <h2>1.为响应式设计定义多个图像资源？？？</h2>
 <picture>
-	<!-- <source srcset="daodao_1.png daodao_2.png 2x" media="(max-width:360px)"> -->
-	<!-- <source srcset="daodao_2.png daodao_3.png 2x" media="(min-width:1360px)"> -->
-	<img src="daodao_2.png" srcset="daodao_2.png" alt="your image">
+	<!-- <source srcset="daodao_1.png 1x,daodao_2.png 2x" media="(max-width:360px)">
+	<source srcset="daodao_2.png 1x,daodao_3.png 2x" media="(min-width:1360px)"> -->
+	<img src="daodao_2.png" srcset="daodao_2.png 1x,daodao_3.png 2x" alt="your image">
 </picture>
 
 <h2>2.显示或隐藏额外信息</h2>
@@ -33,7 +33,15 @@
 </menuitem>
 </menu>
 
-<h2>4.嵌入页眉页脚？？</h2>
+<h2>4.嵌入页眉页脚</h2>
+<article>
+	<header>Article Title</header>
+	<p>Article content</p>
+	<p>Article content</p>
+	<p>Article content</p>
+	<p>Article content</p>
+	<footer>page 1</footer>
+</article>
 
 <h2>5.对样式和脚本使用加密随机数 ???用法</h2>
 <script nonce="adfadkg544">
