@@ -7,14 +7,26 @@
 
 </head>
 <body>
-<h2>1.为响应式设计定义多个图像资源？？？</h2>
+<ul>
+	<li><a href="#1">1.为响应式设计定义多个图像资源？？？</a></li>
+	<li><a href="#2">2.显示或隐藏额外信息</a></li>
+	<li><a href="#3">3.将功能添加到浏览器的上下文菜单</a></li>
+	<li><a href="#4">4.嵌入页眉页脚</a></li>
+	<li><a href="#5">5.对样式和脚本使用加密随机数 ???用法</a></li>
+	<li><a href="#6">6.创建反向链路？？</a></li>
+	<li><a href="#7">7.使用零宽度图像</a></li>
+	<li><a href="#8">8.分离浏览器上下文以防止网络钓鱼攻击？？？</a></li>
+	<li><a href="#9">9.创建一个空选项</a></li>
+	<li><a href="#10">10.更灵活地处理图像标题</a></li>
+</ul>
+<h2 id="1">1.为响应式设计定义多个图像资源？？？</h2>
 <picture>
 	<!-- <source srcset="daodao_1.png 1x,daodao_2.png 2x" media="(max-width:360px)">
 	<source srcset="daodao_2.png 1x,daodao_3.png 2x" media="(min-width:1360px)"> -->
 	<img src="daodao_2.png" srcset="daodao_2.png 1x,daodao_3.png 2x" alt="your image">
 </picture>
 
-<h2>2.显示或隐藏额外信息</h2>
+<h2 id="2">2.显示或隐藏额外信息</h2>
 <section> 
 	<h4>Error Message</h4>
 	<details>
@@ -26,14 +38,14 @@
 	</details>
 </section>
 
-<h2>3.将功能添加到浏览器的上下文菜单</h2>
+<h2 id="3">3.将功能添加到浏览器的上下文菜单</h2>
 <button contextmenu="rightclickmenu">Right click me</button>
 <menu type="context" id="rightclickmenu">
 <menuitem type="checkbox" label="HTML5 contextmenu">
 </menuitem>
 </menu>
 
-<h2>4.嵌入页眉页脚</h2>
+<h2 id="4">4.嵌入页眉页脚</h2>
 <article>
 	<header>Article Title</header>
 	<p>Article content</p>
@@ -43,25 +55,25 @@
 	<footer>page 1</footer>
 </article>
 
-<h2>5.对样式和脚本使用加密随机数 ???用法</h2>
+<h2 id="5">5.对样式和脚本使用加密随机数 ???用法</h2>
 <script nonce="adfadkg544">
 	console.log("nonce");
 </script>
 
-<h2>6.创建反向链路？？</h2>
+<h2 id="6">6.创建反向链路？？</h2>
 
-<h2>7.使用零宽度图像</h2>
+<h2 id="7">7.使用零宽度图像</h2>
 <img src="daodao_2.png" width="0" height="0" alt="">
 
-<h2>8.分离浏览器上下文以防止网络钓鱼攻击？？？</h2>
+<h2 id="8">8.分离浏览器上下文以防止网络钓鱼攻击？？？</h2>
 
-<h2>9.创建一个空选项</h2>
+<h2 id="9">9.创建一个空选项</h2>
 <select>
 	<option></option>
 	<option></option>
 </select>
 
-<h2>10.更灵活地处理图像标题</h2>
+<h2 id="10">10.更灵活地处理图像标题</h2>
 <figure>
 	<figcaption>图像标题</figcaption>
 	<img src="daodao_2.png">
