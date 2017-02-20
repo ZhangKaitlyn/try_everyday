@@ -1,0 +1,7 @@
+img{
+	width: 100%;
+	height: auto;
+}
+.col8,.col4,.col6{
+	/*float: left;*/
+}

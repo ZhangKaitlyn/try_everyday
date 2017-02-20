@@ -33,5 +33,29 @@
 </script>
 
 <h3>方案二：使用对象key来去重</h3>
+<img src="images/method_2.jpg" alt="方案二">
+<img src="images/method_2_answer.jpg" alt="方案二结果">
+<h4>该方法局限性：</h4>
+<ul>
+	<li>无法区分隐式类型转换成字符串后一样的值，比如 1 和 '1' <a href="#">解决方法一</a></li>
+	<li>无法处理复杂数据类型，比如对象 <a href="#">解决方法二</a></li>
+	<li>特殊数据，比如 '_proto_'会挂掉，因为tmp对象的 _proto_ 属性无法被重写 <a href="#">解决方法三</a></li>
+</ul>
+<script>
+	function unique2(arr){
+		var ret=[];
+		var len=arr.length;
+		var tmp={};
+		for(var i=0;i<len;i++){
+			if(!tmp[arr[i]]){
+				tmp[arr[i]]=1;
+				ret.push(arr[i]);
+			}
+		}
+		return ret;
+	}
+	var arr2=[1,"1",'1',1,2,3,4,2,3,4];
+	console.log(unique2(arr2));
+</script>
 </body>
 </html>
