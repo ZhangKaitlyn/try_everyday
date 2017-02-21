@@ -3,5 +3,28 @@ img{
 	height: auto;
 }
 .col8,.col4,.col6{
-	/*float: left;*/
+	float: left;
+}
+.col8{
+	width: 66.6666667%;
+}
+.col4{
+	width: 33.3333333%;
+}
+.col6{
+	width: 50%;
+}
+.profile-250{
+	width: 250px;
+	height: 250px;
+	object-fit: cover;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.intro{
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    font-size: 25px;
+    line-height: 2em;
 }
