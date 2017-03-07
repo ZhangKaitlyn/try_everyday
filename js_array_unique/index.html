@@ -57,5 +57,39 @@
 	var arr2=[1,"1",'1',1,2,3,4,2,3,4];
 	console.log(unique2(arr2));
 </script>
+
+<h3>Map Key</h3>
+<p>Map是ES2015中的新的数据类型，可以把它想象成key类型没有限制的对象</p>
+<img src="images/method_3.jpg" alt="方案三">
+<img src="images/method_3_answer.jpg" alt="方案三结果">
+<script>
+	function unique3(arr){
+		var ret=[];
+		var len=arr.length;
+		var tmp=new Map();
+		for(var i=0;i<len;i++){
+			if(!tmp.get(arr[i])){
+				tmp.set(arr[i],1);
+				ret.push(arr[i]);
+			}
+		}
+		return ret;
+	}
+	var arr3=[1,"1",'1',1,2,3,4,2,3,4];
+	console.log(unique3(arr3)); 
+</script>
+
+<h3>Set</h3>
+<p>Set是ES2015中的新的数据类型，可以把它想象成集合</p>
+<img src="images/method_4.jpg" alt="方案四">
+<img src="images/method_4_answer.jpg" alt="方案四结果">
+<script>
+	function unique4(arr){
+		var set=new Set(arr);
+		return Array.from(set);
+	}
+	var arr4=[1,"1",'1',1,2,3,4,2,3,4];
+	console.log(unique4(arr4)); 
+</script>
 </body>
 </html>
