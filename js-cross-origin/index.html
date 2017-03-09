@@ -9,7 +9,14 @@
 <p>前端只能解决由于域名不同而产生的跨域问题。</p>
 
 <h3>方法一:通过document.domain跨域</h3>
-<h4>使用情景</h4>
+<h4>使用情景：</h4>
+<iframe id="myIframe" src="iframe.html"></iframe>
+<script>
+	var myIframe=document.getElementById('myIframe');
+	console.log(myIframe);
+	var win=myIframe.contentWindow;
+	console.log(win);
+</script>
 
 </body>
 </html>
